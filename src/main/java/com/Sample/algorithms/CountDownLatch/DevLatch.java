@@ -13,12 +13,12 @@ public class DevLatch implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Dev thread started"+this.name);
+        System.out.println("Dev thread started -> "+this.name);
         try{
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-    System.out.println("dev thread completed");
+    System.out.println("dev thread completed!!");
     }
 }
