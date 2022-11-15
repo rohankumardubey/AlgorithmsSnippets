@@ -1,52 +1,62 @@
 package com.Sample.algorithms.Tries;
 
-public class TriesUsage {
-
+public class TriesNode {
     boolean isEnd = false;
-    TriesUsage[] nodes = new TriesUsage[26];
+    TriesNode[] node = new TriesNode[26];
 }
 
-class TriesImpl{
-    TriesUsage root = new TriesUsage();
+
+class Tries{
+    TriesNode root = new TriesNode();
 
     public void insert(String word){
-        TriesUsage current = root;
+        TriesNode current = root;
         for(int i = 0; i < word.length(); i++) {
           //
             char character = word.charAt(i);
             int index = character-'a';
-            if(current.nodes[index]==null){
-                current.nodes[index]=new TriesUsage();
+            if(current.node[index]==null){
+                current.node[index]=new TriesNode();
             }
-            current=current.nodes[index];
+            current=current.node[index];
         }
         current.isEnd=true;
     }
 
     public boolean search(String word){
-        TriesUsage current = root;
+        TriesNode current = root;
         for(int i = 0; i < word.length(); i++) {
+          //
             char character = word.charAt(i);
             int index = character-'a';
-            if(current.nodes[index]==null){
+            if(current.node[index]==null){
                 return false;
             }
-            current=current.nodes[index];
-          //
+            current=current.node[index];
         }
         return current.isEnd;
     }
 
+    public boolean startsWith(String word){
+        TriesNode current = root;
+        for(int i = 0; i < word.length(); i++) {
+          //
+            char character = word.charAt(i);
+            int index = character-'a';
+            if(current.node[index]==null){
+                return false;
+            }
+            current=current.node[index];
+        }
+        return true;
+    }
 
     public static void main(String[] args){
       //
-
-        TriesImpl trie = new TriesImpl();
-        trie.insert("sample");
-        trie.insert("duck");
-        trie.insert("elephant");
-        trie.insert("sampl");
-        System.out.println(trie.search("sampl"));
-        System.out.println(trie.search("elephant"));
+        Tries tries = new Tries();
+        tries.insert("app");
+        tries.insert("apple");
+        tries.insert("apply");
+        System.out.println(tries.search("app"));
     }
 }
