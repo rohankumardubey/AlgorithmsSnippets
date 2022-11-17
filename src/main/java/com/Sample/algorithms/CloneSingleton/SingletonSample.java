@@ -1,12 +1,11 @@
 package com.Sample.algorithms.CloneSingleton;
 
-public class SingletonSample extends cloning{
+public class SingletonSample implements Cloneable{
     private static volatile SingletonSample instance;
 
-    //this is to prevent from cloning
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException();
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
 
     public static SingletonSample getInstance(){
