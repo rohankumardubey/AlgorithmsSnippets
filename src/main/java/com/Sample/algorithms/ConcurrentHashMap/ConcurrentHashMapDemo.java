@@ -15,6 +15,7 @@ class ConcurrentHashMapDemo {
         map.put(2,"hii");
         map.put(3,"hiii");
 
-        map.putIfAbsent(3,"hiii");
+        map.putIfAbsent(4,"hiiii");
+        System.out.println(map);
     }
 }

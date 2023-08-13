@@ -16,12 +16,12 @@ public class MyGenericClass<T extends String,V extends Number> {
         this.v=v;
     }
 
-    T getNumber(){
-        return this.t;
+    V getNumber(){
+        return this.v;
     }
 
-    V getObject(){
-        return this.v;
+    T getObject(){
+        return this.t;
     }
 
 }
